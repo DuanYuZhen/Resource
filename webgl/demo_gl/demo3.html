@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>顶点着色器操作</title>
+	<!-- <script type="text/javascript" src="js/webgl-lessons-helper.js"></script>
+	<script type="text/javascript" src="js/webgl-utils.js"></script> -->
+	<script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+</head>
+<body onload="main()">
+	<canvas id="webgl" width="400" height="800">
+		Please use a browser that supports "canvas"
+	</canvas>
+</body>
+</html>
+<script type="text/javascript">
+	// 顶点着色器：只处理点的位置和大小
+	// gl_PointSize该属性只有在绘制单个点的时候才有效
+	// 不是绘制点，就可以把gl_PointSize删除
+	let vs = 
+	'attribute vec4 a_position;' +
+	'attribute float a_pointSize;' +
+  'void main() {' +
+  'gl_Position = a_position;' +
+  // 'gl_Position = vec4(0.0,0.0,0.0,1.0);' +
+  'gl_PointSize = a_pointSize;' +
+  '}';
+	// 片元着色器：接收顶点着色器传来的“经过光栅化处理的片元值”
+	let fs = 
+	'void main() {' +
+  '  gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);' +
+  '}';
+function main(){
+	let canvas = document.getElementById("webgl");
+	let gl = getWebGLContext(canvas);
+	if(!gl){
+		return;
+	}
+	// 着色器初始化
+	if(!initShaders(gl,vs,fs)){//initShaders()还没有实现
+		return;
+	}
+    
+	
+	canvas.onmousedown = function(ev){
+		// 鼠标点击处的坐标
+		let x = ev.clientX;
+		let y = ev.clientY;
+		// 得到canvas的位置
+		let rect = ev.target.getBoundingClientRect();
+
+		// 将鼠标在屏幕的像素位置，得到鼠标在canvas的坐标点，单位也是像素
+		x=((x-rect.left)-canvas.width/2)/(canvas.width/2);
+		y=(canvas.height/2-(y-rect.top))/(canvas.height/2);
+
+		gl.clear(gl.COLOR_BUFFER_BIT);
+
+
+		let a_position = gl.getAttribLocation(gl.program,"a_position");
+		gl.vertexAttrib3f(a_position, x, y, 0.0);
+
+		let a_pointSize = gl.getAttribLocation(gl.program,"a_pointSize");
+		gl.vertexAttrib1f(a_pointSize,100.0);
+
+		gl.drawArrays(gl.POINTS,0,1);
+
+	};
+
+	/*
+	// 在着色器程序对象中找变量位置
+	let a_position = gl.getAttribLocation(gl.program,"a_position");
+	// 根据位置，传入点的坐标值；4个浮点型
+	gl.vertexAttrib4f(a_position,0.0,0.0,0.0,1.0);
+	// 或者：
+	// let position = new Float32Array([0.0,0.0,0.0,1.0]);
+	// gl.vertexAttrib4fv(a_position,position);
+
+
+	// 以相同方式给点的大小赋值
+	let a_pointSize = gl.getAttribLocation(gl.program,"a_pointSize");
+	gl.vertexAttrib1f(a_pointSize,10.0);
+	*/
+
+
+	// 设置清空canvas画布的背景色
+	gl.clearColor(0.5,0.5,0.5,1.0);
+	// 清空画布
+	gl.clear(gl.COLOR_BUFFER_BIT);
+
+
+	// 绘制：绘制类型，从第几个绘制，绘制总数
+	// gl.drawArrays(gl_POINTS,0,1);
+}
+
+
+	
+</script>

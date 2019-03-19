@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<canvas id="canvas" style="background: green"></canvas>
+</body>
+</html>
+<script type="text/javascript">
+	var textCtx = document.getElementById("canvas").getContext("2d");
+
+	// Puts text in center of canvas.
+	function makeTextCanvas(text, width, height) {
+	  textCtx.canvas.width  = width;
+	  textCtx.canvas.height = height;
+	  textCtx.font = "20px monospace";
+	  textCtx.textAlign = "center";
+	  textCtx.textBaseline = "middle";
+	  textCtx.fillStyle = "white";
+	  textCtx.clearRect(0, 0, textCtx.canvas.width, textCtx.canvas.height);
+	  textCtx.fillText(text, width / 2, height / 2);
+	  return textCtx.canvas;
+	}
+
+
+	makeTextCanvas("你好",500,500);
+</script>

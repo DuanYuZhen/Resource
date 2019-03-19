@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+.mark{
+    position:absolute;
+    height:100px;
+    width:100px;
+    left:100px;
+    top:180px;
+    border:1px solid #000;
+    cursor:move;
+}
+    </style>
+</head>
+<body>
+<div>原图像：</div>
+<canvas id="c"></canvas> 
+<!-- 用来截图的div -->
+<div class="mark" id="mark"></div>
+
+<br/>
+<div>新的canvas容器中</div>
+<canvas id="c3"></canvas>
+
+<br/>
+<div>新的div显示截图:</div>
+<div><img src="" id="imgDom"></div>
+<script>
+    // 原图像
+    var canvas = document.getElementById("c");
+    canvas.height = 300;
+    canvas.width=300;
+    var cxt = canvas.getContext("2d");
+    var img = new Image();
+    img.src = "./imgs/sun.png";
+
+    // 用来截图的div、div的范围
+    var oMark = document.getElementById("mark");
+    // canvas1.getBoundingClientRect().left是：canvas相对于浏览器视图的左边位置
+    var srcX = oMark.offsetLeft-canvas.getBoundingClientRect().left;
+    var srcY = oMark.offsetTop-canvas.getBoundingClientRect().top;
+    var sWidth = oMark.offsetWidth;
+    var sHeight = oMark.offsetHeight;
+
+
+    // 新的canvas
+    var canvas3= document.getElementById("c3");
+    var cxt3=canvas3.getContext("2d");
+    canvas3.height=300;
+    canvas3.width=300;
+
+
+    // 新的div
+    let imgDom = document.getElementById("imgDom");
+    imgDom.width = 300;
+    imgDom.height = 300;
+
+    // 临时的canvas
+    var canvas2 = document.createElement("canvas")
+    var cxt2=canvas2.getContext("2d");
+    canvas2.width = 300;
+    canvas2.height = 300;
+
+
+    // 第一种：直接放到新的canvas容器中展示
+    // img.onload = function(){
+    //     cxt.drawImage(img,0,0,canvas.width,canvas.height);
+    //     var dataImg = cxt.getImageData(srcX,srcY,sWidth,sHeight);
+    //     cxt3.putImageData(dataImg,0,0,0,0,sWidth,sHeight);
+    // };
+
+
+    // 第二种：需要临时canvas,将获取的截图展示在div上：（可放大，缩小截图）
+    // img.onload = function(){
+    //     cxt.drawImage(img,0,0,canvas.width,canvas.height);
+    //     var dataImg = cxt.getImageData(srcX,srcY,sWidth,sHeight);
+    //     cxt2.putImageData(dataImg,0,0,0,0,sWidth,sHeight);
+    //     var imgUrl = canvas2.toDataURL("image/png");
+
+    //     imgDom.src = imgUrl;
+    // };
+
+
+    // 第三种：需要临时canvas,将获取的截图展示在canvas上：（可放大，缩小截图）
+    img.onload = function(){
+        cxt.drawImage(img,0,0,canvas.width,canvas.height);
+        var dataImg = cxt.getImageData(srcX,srcY,sWidth,sHeight);
+        cxt2.putImageData(dataImg,0,0,0,0,sWidth,sHeight);
+        var imgUrl = canvas2.toDataURL("image/png");
+
+        var img3 = new Image();
+        img3.src = imgUrl;
+        img3.onload  = function(){
+            cxt3.drawImage(img3,0,0,sWidth,sHeight,0,0,canvas3.width,canvas3.height);
+        };
+    };
+</script>
+</body>
+</html>

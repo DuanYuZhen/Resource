@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>文字绘制在canvas——2d</title>
+	<link rel="stylesheet" type="text/css" href="css/text_canvas.css">
+</head>
+<body>
+	<div class="container">
+	  <canvas id="canvas"></canvas>
+	  <canvas id="text"></canvas>
+	</div>
+
+	<!-- vertex shader -->
+	<script id="3d-vertex-shader" type="x-shader/x-vertex">
+	attribute vec4 a_position;
+	attribute vec4 a_color;
+
+	uniform mat4 u_matrix;
+
+	varying vec4 v_color;
+
+	void main() {
+	  // Multiply the position by the matrix.
+	  gl_Position = u_matrix * a_position;
+
+	  // Pass the color to the fragment shader.
+	  v_color = a_color;
+	}
+	</script>
+	<!-- fragment shader -->
+	<script id="3d-fragment-shader" type="x-shader/x-fragment">
+	precision mediump float;
+
+	// Passed in from the vertex shader.
+	varying vec4 v_color;
+
+	void main() {
+	   gl_FragColor = v_color;
+	}
+	</script>
+	<!--
+	for most samples webgl-utils only provides shader compiling/linking and
+	canvas resizing because why clutter the examples with code that's the same in every sample.
+	See http://webglfundamentals.org/webgl/lessons/webgl-boilerplate.html
+	and http://webglfundamentals.org/webgl/lessons/webgl-resizing-the-canvas.html
+	for webgl-utils, m3, m4, and webgl-lessons-ui.
+	-->
+	<script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
+	<script src="https://webglfundamentals.org/webgl/resources/webgl-lessons-helper.js"></script>
+	<!-- you can and should delete this script. it is only used on the site to help with errors -->
+	<script src="https://webglfundamentals.org/webgl/resources/m4.js"></script>
+	<script type="text/javascript" src="js/text_canvas.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="iconfont/iconfont.css">
+</head>
+<body>
+    <i class="mapicon" id="cont">&#61464;&#57346;</i>
+    <div id="div" style="padding:0;margin:0">
+        <canvas id="canvas" width="500" height="500" style="font-family: mapicon"></canvas>
+    </div>
+
+</body>
+</html>
+<script type="text/javascript">
+    let content = document.getElementById("cont").innerHTML;
+    let canvas = document.getElementById("canvas");
+    let textCtx = canvas.getContext('2d');
+    // textCtx.font = "400 normal 10px mapicon";
+    textCtx.font = "10px mapicon";
+    textCtx.fillText(content, 300, 300);
+</script>
+<script type="text/javascript">
+    // const a = new Image();
+    // a.src = "https://www.baidu.com/img/baidu_jgylogo3.gif";
+    // a.onload = function(){
+    //     console.log(a.width);
+    //     console.log(a.height);
+    // };
+    
+
+    // const div = document.getElementById("div");
+    // div.appendChild(a);
+
+
+    // var a = [];
+    // for(var one of a){
+    //     console.log(one);
+    // }
+
+    // let img = new Image();
+    // img.src = "./fetch/imgs/1359.png";
+    // let canvas = document.getElementById("canvas");
+
+    // canvas.width=500;
+    // canvas.height=500;
+    // let textCtx = canvas.getContext('2d');
+    // img.onload = function(){
+    //     console.log(img.width,img.height);
+    //     textCtx.drawImage(img,0,0,img.width,img.height,0,0,img.width,img.height);
+    //     // textCtx.drawImage(img,0,0,256,256,0,0,256,256);
+    //     textCtx.fillText("text", 300, 300);
+
+    //     canvas.width=1000;
+    //     canvas.height=1000;
+    // };
+    
+
+
+    // const a =1,b=2,c=3;
+    // console.log(b);
+
+    // let map = new Map();
+    // let b = "../imgs/e.png";
+    // let d = "iconDefault";
+    // let id = b + "_" + d;
+
+    // map.set(id,{"a":1});
+    // console.log(map.get(id));   
+    // console.log(map); 
+
+
+
+
+
+    // const div = document.getElementById("div");
+    
+    // console.log(typeof div === 'object');
+
+//     const a=3-2,b=9-2,c=5-0;
+//     console.log(b);
+//     b = 1;
+//     console.log(b);
+
+
+    // let img = new Image();
+    // img.src = "./fetch/imgs/1359.png";
+    // let canvas = document.getElementById("canvas");
+    // canvas.width=500;
+    // canvas.height=500;
+
+    // let textCtx = canvas.getContext('2d');
+    // img.onload = function(){
+    //     textCtx.drawImage(img,0,0,img.width,img.height,0,0,img.width,img.height);
+    //     // textCtx.drawImage(img,0,0,256,256,0,0,256,256);
+    //     textCtx.font = "400 normal 10px mapicon";
+    //     textCtx.fillText("&#61464;", 300, 300);
+    // };
+
+</script>

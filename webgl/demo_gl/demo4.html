@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>中心点+片元着色器操作</title>
+	<!-- <script type="text/javascript" src="js/webgl-lessons-helper.js"></script>
+	<script type="text/javascript" src="js/webgl-utils.js"></script> -->
+	<script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+</head>
+<body onload="main()">
+	<canvas id="webgl" width="400" height="800">
+		Please use a browser that supports "canvas"
+	</canvas>
+</body>
+</html>
+<script type="text/javascript">
+	// 顶点着色器：只处理点的位置和大小
+	let vs = 
+  'void main() {' +
+  'gl_Position = vec4(0.0,0.0,0.0,1.0);' +
+  'gl_PointSize = 10.0;' +
+  '}';
+	// 片元着色器：接收顶点着色器传来的“经过光栅化处理的片元值”
+	let fs = 
+	'precision mediump float;'+
+	'uniform vec4 u_fragColor;'+
+	'void main() {' +
+  '  gl_FragColor = u_fragColor;' +
+  '}';
+function main(){
+	let canvas = document.getElementById("webgl");
+	let gl = getWebGLContext(canvas);
+	if(!gl){
+		return;
+	}
+	// 着色器初始化
+	if(!initShaders(gl,vs,fs)){//initShaders()还没有实现
+		return;
+	}
+    
+	
+	let u_fragColor = gl.getUniformLocation(gl.program,"u_fragColor");
+	gl.uniform4f(u_fragColor,0.0,0.0,1.0,1.0);
+
+	/*
+	// 在着色器程序对象中找变量位置
+	let a_position = gl.getAttribLocation(gl.program,"a_position");
+	// 根据位置，传入点的坐标值；4个浮点型
+	gl.vertexAttrib4f(a_position,0.0,0.0,0.0,1.0);
+	// 或者：
+	// let position = new Float32Array([0.0,0.0,0.0,1.0]);
+	// gl.vertexAttrib4fv(a_position,position);
+
+
+	// 以相同方式给点的大小赋值
+	let a_pointSize = gl.getAttribLocation(gl.program,"a_pointSize");
+	gl.vertexAttrib1f(a_pointSize,10.0);
+	*/
+
+
+	// 设置清空canvas画布的背景色
+	gl.clearColor(0.5,0.5,0.5,1.0);
+	// 清空画布
+	gl.clear(gl.COLOR_BUFFER_BIT);
+
+
+	// 绘制：绘制类型，从第几个绘制，绘制总数
+	gl.drawArrays(gl.POINTS,0,1);
+}
+
+
+	
+</script>

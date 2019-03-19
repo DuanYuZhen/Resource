@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>iconfont</title>
+	<style type="text/css">
+		
+            @font-face { 
+                font-family:'mapicon';
+                src: url('mapicon.ttf') format('truetype');
+            }
+            .mapicon{ 
+                font-family:"mapicon"!important; 
+            }
+      
+	</style>
+</head>
+<body>
+	<div id="div"></div>
+	<div id="can"></div>
+</body>
+</html>
+<script type="text/javascript">
+	     let h2 = document.createElement("span");
+	     h2.style.display="inline-block";
+		 let div = document.getElementById("div");
+		 h2.className = "Microsoft Yahei"; 
+	     h2.innerHTML = "&#61461;";
+		 div.appendChild(h2);
+		 let width = h2.clientWidth;
+		 console.log(width);
+
+		 h2.className = "mapicon";
+		 let interval = setInterval(function(){
+		 	if(width != h2.clientWidth){
+		 		
+		 		var canvas1 =document.createElement('canvas');
+		        canvas1.width = 100;
+		        canvas1.height = 100;
+		        var context1 = canvas1.getContext("2d");
+				 context1.beginPath();
+				 context1.font="16px mapicon";  // 将这里的Arial 设置为自己图标库的名称
+				  // 将使用的图标的Unicode放在以下方式进行转义，便可以使用
+				 // var icon = eval('("'+'=&#61493;'.replace('&#x','\\u').replace(';','')+'")')
+				 context1.fillStyle= "#008F36"
+				 context1.fillText(h2.textContent,45,86);
+
+				 let can = document.getElementById("can");
+				 can.appendChild(canvas1);
+				 console.log(h2.clientWidth);
+		 		clearInterval(interval);
+		 	}
+		 },10);
+
+		
+		 
+	 
+</script>
+<script type="text/javascript">
+_dealIconSymbols(features,resMap,positionArr,textureCoordArr,sizeArr,opacityArr,flagArr,texColorArr,offsetArr,resolution,atlasMgr,callback){
+        let markerSymbolCount = 0;//记录markerSymbol的数量
+        for(let i=0,len=features.length;i<len;i++){
+            const feature = features[i];
+            const markerSymbol = feature.getStyle().getMarkerSymbol();
+
+                
+                const coord = feature.getGeometry().getCoordinate();
+                const x = coord.getOrdinate("X"), y = coord.getOrdinate("Y"), z = coord.getOrdinate("Z");
+                positionArr.push(x);
+                positionArr.push(y);
+                positionArr.push(z);
+                // const markerSymbol = feature.getStyle().getMarkerSymbol();
+                // if (markerSymbol == null) {
+                //     continue;
+                // }
+
+                const pointSize = markerSymbol.getSize().getWidth();
+                sizeArr.push(pointSize);
+                // opacity
+                opacityArr.push(markerSymbol.getColor()[3]);
+                flagArr.push(0.0);
+                texColorArr.push(0.0);
+                texColorArr.push(0.0);
+                texColorArr.push(0.0);
+                texColorArr.push(0.0);
+
+                //计算图标的偏移
+                let xOffset = markerSymbol.getAnchor()[0];
+                if (markerSymbol.getAnchorXUnit() == "fraction") {
+                    xOffset = xOffset * pointSize;
+                }
+
+                let yOffset = markerSymbol.getAnchor()[1];
+                if (markerSymbol.getAnchorYUnit() == "fraction") {
+                    yOffset = yOffset * pointSize;
+                }
+                offsetArr.push(xOffset * resolution);
+                offsetArr.push(yOffset * resolution);
+                offsetArr.push(0.0);
+
+                //获取图标路径，加载图标
+                const imgSrc = markerSymbol.getImgSrc();
+
+                let iconInfo = atlasMgr.getIconInfo(imgSrc);
+                if(iconInfo){
+                    markerSymbolCount++;
+                    textureCoordArr.push(iconInfo.x);
+                    textureCoordArr.push(iconInfo.y);
+                    textureCoordArr.push(iconInfo.width);
+                    textureCoordArr.push(iconInfo.height);
+                    if (features.length==markerSymbolCount) {
+                        resMap.set("iconTexture", atlasMgr.getAtlases()[1].getCanvas());
+                        resMap.set("position", positionArr);
+                        resMap.set("texCoord", textureCoordArr);
+                        resMap.set("size", sizeArr);
+                        resMap.set("opacity", opacityArr);
+                        resMap.set("flag", flagArr);
+                        resMap.set("texColor", texColorArr);
+                        resMap.set("offset", offsetArr);
+                        callback(resMap);
+                        return;
+                    }
+                }else{
+                    atlasMgr.addIcon(imgSrc, function (iconInfo) {
+                        markerSymbolCount++;
+                        textureCoordArr.push(iconInfo.x);
+                        textureCoordArr.push(iconInfo.y);
+                        textureCoordArr.push(iconInfo.width);
+                        textureCoordArr.push(iconInfo.height);
+                        if (features.length==markerSymbolCount) {
+                            resMap.set("iconTexture", atlasMgr.getAtlases()[1].getCanvas());
+                            resMap.set("position", positionArr);
+                            resMap.set("texCoord", textureCoordArr);
+                            resMap.set("size", sizeArr);
+                            resMap.set("opacity", opacityArr);
+                            resMap.set("flag", flagArr);
+                            resMap.set("texColor", texColorArr);
+                            resMap.set("offset", offsetArr);
+                            callback(resMap);
+                        }
+                    }.bind(this));
+                }
+
+                
+                
+        }// for end
+    }
+</script>

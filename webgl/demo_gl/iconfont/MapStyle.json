@@ -1,0 +1,4056 @@
+{   
+  "rules": [
+   {
+	    "featureType":"LAND",
+	    "filter": {
+	      "type": "==",
+	      "property": "subType",
+	      "value": "LAND"
+	    },	     
+	    "styles": [{
+	      "minLevel": 0,
+	      "maxLevel": 20,
+	      "symbolizer": {	      
+	        "fillColor" : "#F9F9F9", 
+	        "fillOpacity": 1,	         
+	        "display" : "block"
+	      }
+	     }]     
+    }, 
+    {
+	    "featureType":"CITY_PG",
+	    "filter": {
+	      "type": "==",
+	      "property": "subType",
+	      "value": "CITY_PG"
+	    },
+	    "styles": [{
+	      "minLevel": 9,
+	      "maxLevel": 18,
+	      "symbolizer": {	      
+	        "strokeWidth": 0,
+	        "strokeColor" : "rgb(252,245,223)",
+	        "fillColor" : "#F9F9F9", 
+	        "label": "${name}", 
+	        "fontColor": "#FEFEFE",
+	        "labelOutlineWidth": 0,
+	        "labelBackgroundColor": "rgb(140,188,240)",     
+	        "display" : "block"
+	      }
+	     }]     
+    }, 
+  	{
+	    "featureType":"COUNTY_PG",
+	    "filter": {
+	      "type": "==",
+	      "property": "subType",
+	      "value": "COUNTY_PG"
+	    },
+	    "styles": [{
+	      "minLevel": 0,
+	      "maxLevel": 0,
+	      "symbolizer": {	        
+	        "strokeWidth": 0,
+	        "strokeColor" : "rgb(252,245,223)",
+	        "fillColor" : "#F9F9F9",
+	        "label": "${name}", 
+	        "fontColor": "#FEFEFE",
+	        "labelOutlineWidth": 0,
+	        "labelBackgroundColor": "rgb(140,188,240)",     
+	        "display" : "block"
+	      }
+	     }]     
+    }, 
+    {
+	    "featureType":"TOWN_PG",
+	    "filter": {
+	      "type": "==",
+	      "property": "subType",
+	      "value": "TOWN_PG"
+	    },
+	    "styles": [{
+	      "minLevel": 0,
+	      "maxLevel": 0,
+	      "symbolizer": {	        
+	        "strokeWidth": 0,
+	        "strokeColor" : "rgb(252,245,223)",
+	        "fillColor" : "#F9F9F9", 
+	        "label": "${name}",      
+	        "display" : "block"
+	      }
+	     }]     
+    },   
+    {
+      "featureType":"VEGETATION",
+      "filter": {
+        "type": "~",
+        "property": "subType",
+        "value": "VEGETATION"
+       },
+      "styles": [{
+        "minLevel": 12,
+        "maxLevel": 20,
+        "symbolizer": {
+          "name": "vegetation",
+          "strokeWidth": 0,
+          "strokeColor": "rgb(198,222,191)",
+          "fillColor": "rgb(198,222,191)",
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 0,
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"WATER",
+      "filter":{
+        "type": "~",
+        "property": "subType",
+        "value": "HYDSIDE"
+       },
+      "styles": [{
+        "minLevel": 12,
+        "maxLevel": 20,
+        "symbolizer": {
+          "strokeWidth": 0,
+          "fillColor" : "rgb(168,206,228)",
+          "fillOpacity": 1,
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 0,
+          "display" : "block"
+        }
+      }]
+    },
+    {
+      "featureType":"WATER",
+      "filter":{
+        "type": "==",
+        "property": "subType",
+        "value": "LAKES_PG"
+      },
+      "styles": [{
+        "minLevel": 12,
+        "maxLevel": 20,
+        "symbolizer": {
+          "strokeWidth": 0,
+          "fillColor" : "rgb(168,206,228)",
+          "fillOpacity": 1,
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 0,
+          "display" : "block"
+        }
+      }]
+    },
+    {
+      "featureType":"RESAREA_PG",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "RESAREA_PG"
+      },
+      "styles": [{
+        "minLevel": 15,
+        "maxLevel": 20,
+        "symbolizer": {         
+          "strokeWidth": 0,
+          "strokeColor": "rgb(252,245,223)",
+          "fillColor": "#ECEAE4",
+          "label": "${name}",
+          "fontSize": "7px",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 0,
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"SIGHT_PG",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "SIGHT_PG"
+      },
+      "styles": [{
+        "minLevel": 14,
+        "maxLevel": 20,
+        "symbolizer": {
+          "strokeWidth": 0,
+          "strokeColor": "rgb(198,222,191)",
+          "fillColor": "rgb(198,222,191)",
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 0,
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"HOSPITAL_PG",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "HOSPITAL_PG"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "strokeWidth": 0,
+          "strokeColor": "rgb(198,222,191)",
+          "fillColor": "rgb(225,22,11)",
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 0,
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"METROSTATION_PG",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "MATROSTATION_PG"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "strokeWidth": 0,
+          "strokeColor": "rgb(240,176,168)",
+          "fillColor": "rgb(240,176,168)",
+          "fillOpacity": 0.4,
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 0,
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"TRAFFIC_HUB_PG",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "TRAFFIC_HUB_PG"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "strokeWidth": 0,
+          "strokeColor": "rgb(198,222,191)",
+          "fillColor": "rgb(225,22,11)",
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 0,
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"SCHOOL_UNIVERSITY_PG",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "SCHOOL_UNIVERSITY_PG"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "strokeWidth": 0,
+          "strokeColor": "rgb(198,222,191)",
+          "fillColor": "rgb(225,22,11)",
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 1,
+          "display": "block"
+        }
+      }]
+    },
+    {
+	    "featureType":"CITY_LN",
+	    "filter": {
+	      "type": "==",
+	      "property": "subType",
+	      "value": "CITY_LN"
+	    },
+	    "styles": [{
+	      "minLevel": 9,
+	      "maxLevel": 18,
+	      "symbolizer": {	        
+	          "strokeWidth": 1,
+	          "strokeColor": "#8C8C8A",	
+	          "strokeDashstyle": "dash",                  
+	          "display": "block"
+	      }
+	     }]     
+    },
+    {
+	    "featureType":"COUNTY_LN",
+	    "filter": {
+	      "type": "==",
+	      "property": "subType",
+	      "value": "COUNTY_LN"
+	    },
+	    "styles": [{
+	      "minLevel": 9,
+	      "maxLevel": 13,
+	      "symbolizer": {	        
+	          "strokeWidth": 2,
+	          "strokeColor": "#8C8C8A",	
+	          "strokeDashstyle": "dash",                 
+	          "display": "block"
+	      }
+	     }]     
+    }, 
+    {
+	    "featureType":"TOWN_LN",
+	    "filter": {
+	      "type": "==",
+	      "property": "subType",
+	      "value": "TOWN_ln"
+	    },
+	    "styles": [{
+	      "minLevel": 13,
+	      "maxLevel": 20,
+	      "symbolizer": {	      
+	          "strokeWidth": 1,
+	          "strokeColor": "rgb(255,0,0)",	
+	          "strokeDashstyle": "dash",                
+	          "display": "block"
+	      }
+	     }]     
+    }, 
+    {
+      "featureType":"RAILWAY_LN",
+      "filter": {
+        "type": "~",
+        "property": "subType",
+        "value": "RAILWAY"
+      },
+      "styles": [{
+        "minLevel": 9,
+        "maxLevel": 20,
+        "symbolizer": {
+          "strokeWidth": 2,
+          "strokeColor" : "rgb(252,249,249)",         
+          "strokeDashstyle": "dash",
+          "outlineWidth": 3,
+          "outlineColor":"rgb(220,220,220)",         
+          "outlineDashstyle":"solid",
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 1,
+          "display" : "block"
+        }
+      }]
+    },
+    {
+      "featureType":"QITADAOLU",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "QITADAOLU"
+      },
+      "styles": [{
+        "minLevel": 16,
+        "maxLevel": 20,
+        "symbolizer": {
+          "name": "kind08-0b",
+          "strokeWidth": 2,
+          "strokeColor": "rgb(252,249,249)",         
+          "outlineWidth": 3,
+          "outlineColor": "rgb(220,220,220)",         
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 1,
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"XIANGZHENCUNDAO",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "XIANGZHENCUNDAO"
+      },
+      "styles": [{   
+        "minLevel": 12,   
+        "maxLevel": 20,
+       "symbolizer":{        
+          "name": "kind06",
+          "strokeWidth": 3,
+          "strokeColor": "rgb(252,249,249)",         
+          "outlineWidth": 5,
+          "outlineColor": "rgb(200,200,200)",          
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 1,
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"XIANDAO",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "XIANDAO"
+      },
+      "styles": [{
+        "minLevel": 14,
+        "maxLevel": 20, 
+        "symbolizer": {
+          "name": "kind04",
+          "strokeWidth": 3,
+          "strokeColor": "rgb(252,245,223)",        
+          "outlineWidth": 5,
+          "outlineColor": "rgb(249,216,174)",         
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 1,
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"SHENGDAO",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "SHENGDAO"
+      },
+      "styles": [{
+        "minLevel": 11,
+        "maxLevel": 20,
+        "symbolizer": {
+          "name": "kind03",
+          "strokeWidth": 4,
+          "strokeColor": "rgb(252,245,223)",        
+          "outlineWidth": 6,
+          "outlineColor": "rgb(250,228,181)",         
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 1,
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"GUODAO",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "GUODAO"
+      },
+      "styles": [{  
+       "minLevel": 13,            
+       "maxLevel": 20,        
+        "symbolizer": {
+          "strokeWidth": 4,
+          "strokeColor": "rgb(252,245,223)",         
+          "outlineWidth": 6,
+          "outlineColor": "rgb(249,223,169)",         
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 1,
+          "display": "block"
+        }
+        }]
+    },
+       
+      
+    {
+      "featureType":"GAOSU",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "GAOSU"
+      },
+      "styles": [{
+        "minLevel": 6,
+        "maxLevel": 20,
+        "symbolizer": {
+          "strokeWidth": 2,
+          "strokeColor" : "rgb(252,224,156)",         
+          "outlineWidth": 4,
+          "outlineColor":"rgb(239,197,117)",         
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 1,
+          "display" : "block"
+        }
+      },
+      {
+        "minLevel": 11,
+        "maxLevel": 20,
+        "symbolizer": {
+          "strokeWidth": 5,
+          "strokeColor" : "rgb(252,224,156)",         
+          "outlineWidth": 7,
+          "outlineColor":"rgb(239,197,117)",         
+          "label": "${name}",
+          "fontColor": "#737063",
+          "labelOutlineColor": "#FDFCF6",
+          "labelOutlineWidth": 1,
+          "display" : "block"
+        }
+      }]
+    },    
+    {
+      "featureType":"SUBWAY_LN",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "SUBWAY_LN"
+      },
+      "styles": [{
+        "minLevel": 6,
+        "maxLevel": 20,
+        "symbolizer": {
+          "strokeWidth": 1,
+          "strokeColor" : "rgb(255,130,117)",        
+          "outlineWidth": 2,
+          "outlineColor":"rgb(249,249,249)",         
+          "label": "${name}",
+          "fontColor": "rgb(255,130,117)",
+          "labelOutlineColor": "rgb(249,249,249)",
+          "labelOutlineWidth": 1,
+          "display" : "block"
+        }
+      }]
+    },
+    {
+      "featureType":"BANK_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "BANK_PT"
+      },
+      "styles": [{
+        "minLevel": 14,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61464;",
+          "strokeColor" : "rgb(162,143,141)",
+          "backgroundGraphic" :"&#57346",
+          "backgroundFillColor" : "rgb(255,255,255)",
+          "outerStrokeColor":"rgb(129,104,104)",
+          "iconFont" : "16px",         
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily" : "Arial",
+          "fontWeight" : "normal",
+          "fontStyle": "normal",
+          "fontSize" : "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display" : "block"
+        }
+      }]
+    },
+    {
+      "featureType":"CARPARK_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "CARPARK_PT"
+      },
+      "styles": [{
+        "minLevel": 16,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61456;",
+          "strokeColor" : "rgb(154,177,198)",
+          "backgroundGraphic" :"&#57346",
+          "backgroundFillColor" : "rgb(255,255,255)",
+          "outerStrokeColor":"rgb(35,117,209)",
+          "iconFont" : "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily" : "Arial",
+          "fontWeight" : "bold",
+          "fontStyle": "normal",
+          "fontSize" : "7px",
+          "fontColor": "rgb(35,117,209)",
+          "labelAlign": "cb",
+          "display" : "block"
+        }
+      }]
+    },
+    {
+      "featureType":"DISTRICT_A_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "DISTRICT_A_PT"
+      },
+      "styles": [{
+        "minLevel": 8,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "fillColor": "rgb(241,235,235)",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontColor": "#FFFFFF",
+          "labelOutlineWidth": 1,
+          "labelBackgroundColor" : "#8CBCF0",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"CHINA_PROCENCITY_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "CHINA_PROCENCITY_PT"
+      },
+      "styles": [{
+        "minLevel": 7,
+        "maxLevel": 12,
+        "symbolizer": {
+          "externalGraphic": "&#39",
+          "strokeColor": "rgb(224,0,0)",
+          "backgroundGraphic": "&#39",
+          "backgroundFillColor": "rgb(229,219,217)",
+          "outerStrokeColor": "rgb(224,0,0)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"CHINA_PRECENCITY_A_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "CHINA_PRECENCITY_A_PT"
+      },
+      "styles": [{
+        "minLevel": 8,
+        "maxLevel": 12,
+        "symbolizer": {
+          "externalGraphic": "&#77",
+          "strokeColor": "rgb(149,92,26)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"CHINA_PRECENCITY_B_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "CHINA_PRECENCITY_B_PT"
+      },
+      "styles": [{
+        "minLevel": 10,
+        "maxLevel": 12,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "fillColor": "rgb(241,235,235)",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"CHINA_PRECENCITY_C_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "CHINA_PRECENCITY_C_PT"
+      },
+      "styles": [{
+        "minLevel": 11,
+        "maxLevel": 12,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "fillColor": "rgb(241,235,235)",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"SUBSTATION_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "SUBSTATION_PT"
+      },
+      "styles": [{
+        "minLevel": 13,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61493",
+          "strokeColor": "rgb(255,0,0)",
+          "backgroundGraphic": "&#57353",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(255,0,0)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"METROSTATION_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "METROSTATION_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#198",
+          "strokeColor": "rgb(254,233,121)",
+          "backgroundGraphic": "&#198",
+          "backgroundFillColor": "rgb(254,233,121)",
+          "outerStrokeColor": "rgb(0,0,0)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"CHANGESTATION_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "CHANGESTATION_PT"
+      },
+      "styles": [{
+        "minLevel": 15,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61492",
+          "strokeColor": "rgb(255,255,255)",
+          "backgroundGraphic": "&#57352",
+          "backgroundFillColor": "rgb(255,0,0)",
+          "outerStrokeColor": "rgb(255,0,0)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"OTHER_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "OTHER_PT"
+      },
+      "styles": [{
+        "minLevel": 19,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"SECURITIES_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "SECURITIES_PT"
+      },
+      "styles": [{
+        "minLevel": 19,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"TEA_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "TEA_PT"
+      },
+      "styles": [{
+        "minLevel": 19,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"HOME_IMPROVEMENT_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "HOME_IMPROVEMENT_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"HANDICRAFT_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "HANDICRAFT_PT"
+      },
+      "styles": [{
+        "minLevel": 19,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"INSURANCE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "INSURANCE_PT"
+      },
+      "styles": [{
+        "minLevel": 19,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"INDUSTRIAL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "INDUSTRIAL_PT"
+      },
+      "styles": [{
+        "minLevel": 19,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"MOTORWAY_SERVICE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "MOTORWAY_SERVICE_PT"
+      },
+      "styles": [{
+        "minLevel": 19,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"LOGISTICS_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "LOGISTICS_C_PT"
+      },
+      "styles": [{
+        "minLevel": 19,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"LOGISTICS_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "LOGISTICS_B_PT"
+      },
+      "styles": [{
+        "minLevel": 19,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"LOGISTICS_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "LOGISTICS_A_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"BICYCLE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "BICYCLE_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"VILLAGE_COMMITTEE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "VILLAGE_COMMITTEE_PT"
+      },
+      "styles": [{
+        "minLevel": 19,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"SPORTS_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "SPORTS_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"TV_STATION_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "TV_STATION_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"TRAVEL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "TRAVEL_PT"
+      },
+      "styles": [{
+        "minLevel": 19,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"TRAINING_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "TRAINING_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"TICKET_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "TICKET_PT"
+      },
+      "styles": [{
+        "minLevel": 19,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"VIDEO_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "VIDEO_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"VEHICLE_DETECTION_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "VEHICLE_DETECTION_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"CULTURAL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "CULTURAL_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"COSMETICS_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "COSMETICS_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"CLOTHING_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "CLOTHING_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"OTHER_RENTAL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "OTHER_RENTAL_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"COMPUTER_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "COMPUTER_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"FLOWERS_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "FLOWERS_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"FARMERS_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "FARMERS_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"LOTTERYSTATION_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "LOTTERYSTATION_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"ASSOCIATION_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "ASSOCIATION_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"BABY_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "BABY_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"ANTIQUE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "ANTIQUE_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"BARBER_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "BARBER_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"COMPANY_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "COMPANY_PT"
+      },
+      "styles": [{
+        "minLevel": 16,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"FOOD_FAST_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "FOOD_FAST_PT"
+      },
+      "styles": [{
+        "minLevel": 18,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "fillColor": "rgb(241,235,235)",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"WC_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "WC_PT"
+      },
+      "styles": [{
+        "minLevel": 18,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61489",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"CONVENIENCE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "CONVENIENCE_PT"
+      },
+      "styles": [{
+        "minLevel": 18,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61442",
+          "strokeColor": "rgb(177,157,203)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(164,151,193)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"RETAIL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "RETAIL_PT"
+      },
+      "styles": [{
+        "minLevel": 18,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61442",
+          "strokeColor": "rgb(177,157,203)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(164,151,193)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"ATM_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "ATM_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61463",
+          "strokeColor": "rgb(129,104,104)",
+          "backgroundGraphic": "&#57350",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"CAR_MAINTENANCE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "CAR_MAINTENANCE_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61448",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"COMMUNITY_HOSPITAL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "COMMUNITY_HOSPITAL_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61472",
+          "strokeColor": "rgb(193,115,98)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(208,127,112)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"DENTAL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "DENTAL_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61472",
+          "strokeColor": "rgb(193,115,98)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(208,127,112)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"EPIDEMIC_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "EPIDEMIC_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61472",
+          "strokeColor": "rgb(193,115,98)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(208,127,112)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"PET_HOSPITAL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "PET_HOSPITAL_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61478",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"LIGHT_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "LIGHT_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "fillColor": "rgb(241,235,235)",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"PILL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "PILL_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61479",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"PET_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "PET_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61478",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"PAPER_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "PAPER_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61525",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"CAR_SECONDE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "CAR_SECONDE_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61449",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"CAR_RENTAL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "CAR_RENTAL_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61449",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"BRIDGE_B_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "BRIDGE_B_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"WHARF_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "WHARF_C_PT"
+      },
+      "styles": [{
+        "minLevel": 15,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61491",
+          "strokeColor": "rgb(168,188,216)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(142,169,192)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"WHARF_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "WHARF_B_PT"
+      },
+      "styles": [{
+        "minLevel": 15,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61491",
+          "strokeColor": "rgb(168,188,216)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(142,169,192)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"WHARF_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "WHARF_A_PT"
+      },
+      "styles": [{
+        "minLevel": 14,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61491",
+          "strokeColor": "rgb(168,188,216)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(142,169,192)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"SCHOOL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "SCHOOL_PT"
+      },
+      "styles": [{
+        "minLevel": 16,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61481",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"FOOD_WEST_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "FOOD_WEST_PT"
+      },
+      "styles": [{
+        "minLevel": 16,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61441",
+          "strokeColor": "rgb(215,135,82)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(197,160,133)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"SCIENTIFIC_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "SCIENTIFIC_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61527",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"COMMODITY_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "COMMODITY_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61459",
+          "strokeColor": "rgb(177,157,203)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(177,157,203)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"KTV_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "KTV_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61474",
+          "strokeColor": "rgb(177,157,203)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(171,159,196)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"COFFEE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "COFFEE_PT"
+      },
+      "styles": [{
+        "minLevel": 16,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61465",
+          "strokeColor": "rgb(215,135,82)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(197,160,133)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"FOOD_BAR_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "FOOD_BAR_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61458",
+          "strokeColor": "rgb(215,135,82)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(197,160,133)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"FOOD_CHINA_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "FOOD_CHINA_PT"
+      },
+      "styles": [{
+        "minLevel": 16,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61473",
+          "strokeColor": "rgb(215,135,82)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(197,160,133)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"ENTRANCE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "ENTRANCE_PT"
+      },
+      "styles": [{
+        "minLevel": 16,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#57351",
+          "strokeColor": "rgb(102,171,127)",
+          "backgroundGraphic": "&#61523",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(255,255,255)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"MOBILE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "MOBILE_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61524",
+          "strokeColor": "rgb(87,112,157)",
+          "backgroundGraphic": "&#61523",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(255,255,255)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"COUNTY_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "COUNTY_PT"
+      },
+      "styles": [{
+        "minLevel": 8,
+        "maxLevel": 12,
+        "symbolizer": {
+          "externalGraphic": "",
+          "strokeColor": "rgb(193,115,98)",
+          "backgroundGraphic": "",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(208,127,112)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },    
+    {
+      "featureType":"CARSERVICE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "CARSERVICE_PT"
+      },
+      "styles": [{
+        "minLevel": 18,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61449",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"SUPERMARKET_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "SUPERMARKET_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61442",
+          "strokeColor": "rgb(177,157,203)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(164,151,193)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"STADIUM_B_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "STADIUM_B_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61488",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"STADIUM_A_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "STADIUM_A_PT"
+      },
+      "styles": [{
+        "minLevel": 12,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61488",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"ZOO_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "ZOO_PT"
+      },
+      "styles": [{
+        "minLevel": 12,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61490",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"SIGHT_B_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "SIGHT_B_PT"
+      },
+      "styles": [{
+        "minLevel": 13,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61528",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"SIGHT_A_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "SIGHT_A_PT"
+      },
+      "styles": [{
+        "minLevel": 11,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61528",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"PARK_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "PARK_C_PT"
+      },
+      "styles": [{
+        "minLevel": 18,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61512",
+          "strokeColor": "rgb(138,162,99)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(148,168,139)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"PARK_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "PARK_B_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61512",
+          "strokeColor": "rgb(138,162,99)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(148,168,139)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"PARK_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "PARK_A_PT"
+      },
+      "styles": [{
+        "minLevel": 16,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61512",
+          "strokeColor": "rgb(138,162,99)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(148,168,139)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"MUSEUM_B_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "MUSEUM_B_PT"
+      },
+      "styles": [{
+        "minLevel": 18,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61508",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"MUSEUM_A_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "MUSEUM_A_PT"
+      },
+      "styles": [{
+        "minLevel": 16,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61508",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"MOUNTAIN_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "MOUNTAIN_PT"
+      },
+      "styles": [{
+        "minLevel": 13,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61477",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"MALL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "MALL_B_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61459",
+          "strokeColor": "rgb(177,157,203)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(177,157,203)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"MALL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "MALL_A_PT"
+      },
+      "styles": [{
+        "minLevel": 15,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61459",
+          "strokeColor": "rgb(177,157,203)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(177,157,203)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"HOTEL_C_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "HOTEL_C_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61510",
+          "strokeColor": "rgb(150,130,130)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(197,191,184)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"HOTEL_B_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "HOTEL_B_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61510",
+          "strokeColor": "rgb(150,130,130)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(197,191,184)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"HOTEL_A_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "HOTEL_A_PT"
+      },
+      "styles": [{
+        "minLevel": 13,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61510",
+          "strokeColor": "rgb(150,130,130)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(197,191,184)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"HOSPITAL_B_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "HOSPITAL_B_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61472",
+          "strokeColor": "rgb(193,115,98)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(208,127,112)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"HOSPITAL_A_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "HOSPITAL_A_PT"
+      },
+      "styles": [{
+        "minLevel": 13,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61472",
+          "strokeColor": "rgb(193,115,98)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(208,127,112)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"SCHOOL_UNIVERSITY_A_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "SCHOOL_UNIVERSITY_A_PT"
+      },
+      "styles": [{
+        "minLevel": 11,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61522",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"EXHCENTER_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "EXHCENTER_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61508",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"OIL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "OIL_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61511",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"PLACE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "PLACE_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"CARSTATION_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "CARSTATION_PT"
+      },
+      "styles": [{
+        "minLevel": 12,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61494",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"BUSINESS_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "BUSINESS_PT"
+      },
+      "styles": [{
+        "minLevel": 15,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"TOLL_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "TOLL_PT"
+      },
+      "styles": [{
+        "minLevel": 15,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61460",
+          "strokeColor": "rgb(255,229,221)",
+          "backgroundGraphic": "&#57349",
+          "backgroundFillColor": "rgb(245,156,138)",
+          "outerStrokeColor": "rgb(245,156,138)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"GARDEN_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "GARDEN_PT"
+      },
+      "styles": [{
+        "minLevel": 15,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61512",
+          "strokeColor": "rgb(138,162,99)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(148,168,139)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"LIBRARY_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "LIBRARY_PT"
+      },
+      "styles": [{
+        "minLevel": 15,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61476",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"POST_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "POST_PT"
+      },
+      "styles": [{
+        "minLevel": 15,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61520",
+          "strokeColor": "rgb(107,143,77)",
+          "backgroundGraphic": "&#61523",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(255,255,255)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"STORES_A_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "STORES_A_PT"
+      },
+      "styles": [{
+        "minLevel": 13,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61459",
+          "strokeColor": "rgb(177,157,203)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(177,157,203)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"SQUARE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "SQUARE_PT"
+      },
+      "styles": [{
+        "minLevel": 14,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"BRIDGE_A_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "BRIDGE_A_PT"
+      },
+      "styles": [{
+        "minLevel": 17,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"BUILDING_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "BUILDING_PT"
+      },
+      "styles": [{
+        "minLevel": 13,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61447",
+          "strokeColor": "rgb(156,150,150)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(156,150,150)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"HIGH_SPEED_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "HIGH_SPEED_PT"
+      },
+      "styles": [{
+        "minLevel": 15,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61509",
+          "strokeColor": "rgb(168,188,216)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(154,177,198)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"POLICE_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "POLICE_PT"
+      },
+      "styles": [{
+        "minLevel": 14,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61461",
+          "strokeColor": "rgb(193,115,98)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(208,127,112)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"GOVERNMENT_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "GOVERNMENT_PT"
+      },
+      "styles": [{
+        "minLevel": 11,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61461",
+          "strokeColor": "rgb(193,115,98)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(208,127,112)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"TOWN_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "TOWN_C_PT"
+      },
+      "styles": [{
+        "minLevel": 13,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"TOWN_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "TOWN_B_PT"
+      },
+      "styles": [{
+        "minLevel": 12,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"TOWN_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "TOWN_A_PT"
+      },
+      "styles": [{
+        "minLevel": 11,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61446",
+          "strokeColor": "rgb(128,103,103)",
+          "backgroundGraphic": "&#57347",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(162,143,141)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"TRASTATION_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "TRASTATION_B_PT"
+      },
+      "styles": [{
+        "minLevel": 12,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61462",
+          "strokeColor": "rgb(168,188,216)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(168,188,216)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"TRASTATION_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "TRASTATION_A_PT"
+      },
+      "styles": [{
+        "minLevel": 11,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61462",
+          "strokeColor": "rgb(168,188,216)",
+          "backgroundGraphic": "&#57345",
+          "backgroundFillColor": "rgb(255,255,255)",
+          "outerStrokeColor": "rgb(168,188,216)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    },
+    {
+      "featureType":"AIRPORT_PT",
+      "filter": {
+        "type": "==",
+        "property": "subType",
+        "value": "AIRPORT_PT"
+      },
+      "styles": [{
+        "minLevel": 10,
+        "maxLevel": 20,
+        "symbolizer": {
+          "externalGraphic": "&#61445",
+          "strokeColor" : "rgb(35,117,209)",
+          "backgroundGraphic" :"&#57345",
+          "backgroundFillColor" : "rgb(255,255,255)",
+          "outerStrokeColor":"rgb(154,177,198)",
+          "iconFont": "16px",
+          "label": "${name}",
+          "labelOutlineColor": "rgb(255,255,255)",
+          "labelOutlineWidth": 1,
+          "fontFamily": "Arial",
+          "fontWeight": "normal",
+          "fontStyle": "normal",
+          "fontSize": "7px",
+          "fontColor": "rgb(162,143,141)",
+          "labelAlign": "cb",
+          "display": "block"
+        }
+      }]
+    }
+  ]
+}

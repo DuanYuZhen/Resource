@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>平移_三角形</title>
+	<script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+</head>
+<body onload="main()">
+	<canvas id="webgl" width="400" height="400"></canvas>
+</body>
+</html>
+<script type="text/javascript">
+	// 添加平移的变量，每个点平移的内容一样
+	let vs = 
+	"attribute vec4 a_position;"+
+	"uniform vec4 u_Translation;"+
+	"void main(){"+
+		"gl_Position = a_position + u_Translation;"+
+	"}";
+	let fs = 
+	"void main(){"+
+		"gl_FragColor = vec4(1.0,0.0,0.0,1.0);"+
+	"}";
+	function main(){
+		let canvas = document.getElementById("webgl");
+		let gl = getWebGLContext(canvas);
+		if(!gl){
+			return;
+		}
+
+		if(!initShaders(gl,vs,fs)){
+			return;
+		}
+
+		let n = initVetexBuffer(gl);
+		if(n<0){
+			return;
+		}
+
+	//每个点的坐标分量的移动，即这里的（0.5,0.5,0.0,0.0）是一个齐次坐标，是三角形的三个点的平移量
+		let u_Translation = gl.getUniformLocation(gl.program,"u_Translation");
+		gl.uniform4f(u_Translation, 0.5,0.5,0.0,0.0);
+
+
+		gl.clearColor(0.5,0.5,0.5,1.0);
+		gl.clear(gl.COLOR_BUFFER_BIT);
+		gl.drawArrays(gl.LINE_LOOP,0,n);
+	}
+	function initVetexBuffer(gl){
+		let n = 3;
+		let vertex = new Float32Array([0.0,0.5, -0.5,-0.5, 0.5,-0.5]);
+
+		let vertexBuffer = gl.createBuffer();
+		if(!vertexBuffer){
+			return;
+		}
+
+		gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer);
+
+		gl.bufferData(gl.ARRAY_BUFFER,vertex,gl.STATIC_DRAW);
+
+		let a_position = gl.getAttribLocation(gl.program,"a_position");
+		if(a_position<0){
+			return;
+		}
+
+		gl.vertexAttribPointer(a_position,2,gl.FLOAT,false,0,0);
+
+		gl.enableVertexAttribArray(a_position);
+
+		return n;
+	}
+</script>

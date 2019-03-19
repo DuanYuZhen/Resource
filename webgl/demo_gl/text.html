@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>文字符号</title>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500" style="background: green"></canvas>
+</body>
+</html>
+<script type="text/javascript">
+	let can = document.getElementById("canvas");
+	let context = can.getContext("2d");
+
+
+	// context.fillStyle = "#ffffaa";
+	// context.fillRect(0,0,100,100);
+
+
+	context.font = "20px Microsoft YaHei";
+	context.textBaseline = "bottom";
+	// context.globalAlpha = 1;
+	context.fillStyle = "#ff0000";
+	context.fillText("hello",150,200);
+
+</script>

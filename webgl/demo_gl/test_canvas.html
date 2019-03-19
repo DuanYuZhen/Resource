@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>动态设置canvas大小测试</title>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+</body>
+</html>
+<script type="text/javascript">
+	let can = document.getElementById("canvas");
+	let context = can.getContext("2d");
+	can.width = "500";
+	can.height = "500";
+	context.fillStyle = "#000000";
+    context.fillText("text1", 250, 250);
+
+
+
+    can.width = "1000";
+	can.height = "1000";
+	context.fillText("text1", 250, 250);
+</script>

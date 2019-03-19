@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="./iconfont2.css"/>	 
+	</head>
+	<body>
+		<canvas id="myCanvas" width="100px" height="100px" style="font-family:iconfont"></canvas>
+
+
+
+		
+		<h2 class="iconfont" id="h2">&#61461;</h2>	
+		
+		
+		<a class="iconfont  icon-star">五角星</a>  
+		
+		<a class="iconfont sort">五角星</a>  
+		
+		<a class="" href="#tabbar-with-chat">  
+			<span class="iconfont icon-park">  
+			</span>  
+			<span class="">影 院</span>  
+		</a>	 
+	</body>
+	<script>	 
+		var h2 = document.getElementById('h2');
+		var content = h2.innerHTML;
+        console.log(content);		
+		var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+		ctx.fillStyle = 'green';
+		ctx.strokeStyle = 'red';
+		ctx.font = '16px iconfont';		 
+		
+		ctx.fillText(content,10,10);
+
+	</script>
+
+</html>

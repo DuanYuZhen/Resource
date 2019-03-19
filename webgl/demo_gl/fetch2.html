@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<img src="">
+</body>
+</html>
+<script type="text/javascript">
+	fetch('http://10.6.132.217/hgis2.0/0.png')
+		.then(function(response) {
+			console.log(response.json());
+		})
+		.then(function(imageBlob) {
+			// document.querySelector('img').src = URL.createObjectURL(imageBlob);
+		});
+</script>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>缓冲区</title>
+	<!-- <script type="text/javascript" src="js/webgl-lessons-helper.js"></script>
+	<script type="text/javascript" src="js/webgl-utils.js"></script> -->
+	<script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+</head>
+<body onload="main()">
+	WEBGL提供了一种很方便的机制：缓冲区对象。是webgl中的一块内存区域。
+	可以一次性的向缓冲区对象中填充大量的顶点数据。
+	保存在其中。
+	缓冲区对象可以一次性的向着色器传入多个顶点的数据。
+	<canvas id="webgl" width="400" height="400">
+		Please use a browser that supports "canvas"
+	</canvas>
+</body>
+</html>
+<script type="text/javascript">
+	// 顶点着色器：只处理点的位置和大小
+	let vs = 
+	  'attribute vec4 a_position;' +
+	  'void main() {' +
+	  'gl_Position = a_position;' +
+	  'gl_PointSize = 10.0;' +
+	  '}';
+	// 片元着色器：接收顶点着色器传来的“经过光栅化处理的片元值”
+	let fs = 
+		// 'precision mediump float;'+
+		// 'uniform vec4 u_fragColor;'+
+		'void main() {' +
+	  'gl_FragColor = vec4(1.0,0.0,0.0,1.0);' +
+	  '}';
+
+	function main(){
+		let canvas = document.getElementById("webgl");
+		let gl = getWebGLContext(canvas);
+		if(!gl){
+			console.log("no gl");
+			return;
+		}
+
+		// 着色器初始化
+		if(!initShaders(gl,vs,fs)){
+			console.log("initShaders error");
+			return;
+		}
+
+		// 添加顶点
+		let n = initVertexBuffers(gl);
+		if(n<0){
+			console.log('Failed to set the positions of the vertices');
+			return;
+		}
+
+		gl.clearColor(0.5,0.5,0.5,1.0);
+		gl.clear(gl.COLOR_BUFFER_BIT);
+		gl.drawArrays(gl.POINTS,0,n);
+	}
+
+	function initVertexBuffers(gl){
+		let n = 3;
+		let vertexs = new Float32Array([0.0,0.5, -0.5,-0.5, 0.5,-0.5]);
+
+		// 返回null或者非null
+		// gl.deleteBuffer(buffer);可以删除缓冲区
+		let vertexBuffer = gl.createBuffer();
+		if(!vertexBuffer){
+			console.log('Failed to create the buffer object');
+			return -1;
+		}
+
+		// 将缓冲区对象绑定到gl.ARRAY_BUFFER目标上
+		gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer);
+
+		// 向缓冲区对象中存入数据，gl.STATIC_DRAW表示程序将如何使用数据。是用来优化webgl的，提高程序的效率
+		gl.bufferData(gl.ARRAY_BUFFER,vertexs,gl.STATIC_DRAW);
+
+		// 获取顶点的位置
+		let a_position = gl.getAttribLocation(gl.program,"a_position");
+		if(a_position<0){
+			console.log('Failed to get the storage location of a_Position');
+    		return;
+		}
+
+		// 将缓冲区分配给attribute变量：2——每两个分量为一个顶点；gl.FLOAT——数据类型为float类型；
+		// false——非浮点型数据是否归一化;0——相邻两个顶点间的字节数;0——从数据的何处开始存储。
+		gl.vertexAttribPointer(a_position,2,gl.FLOAT,false,0,0);
+
+		// 开启attribute变量
+		// 可以使用disableVertexAttribArray()关闭分配
+		gl.enableVertexAttribArray(a_position);
+
+		return n;
+	}
+</script>

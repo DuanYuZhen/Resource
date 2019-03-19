@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>画三角形——缓冲区</title>
+</head>
+<body>
+	<canvas id="canvas" height="500" width="620"></canvas>
+	<script type="text/javascript" src="js/webgl-lessons-helper.js"></script>
+	<script type="text/javascript" src="js/webgl-utils.js"></script>
+	<script type="text/javascript">
+		// 顶点着色器
+		// #version 300 es版本指令必须出现在首行
+		var vs = `#version 300 es
+		in vec4 a_position;
+		void main(){
+			gl_Position=a_position;
+		}`;
+
+		// 片元着色器
+		var fs=`#version 300 es
+		precision mediump float;
+		// uniform vec4 u_color;
+		out vec4 outColor;
+		void main(){
+			outColor=vec4(1,0,0,1);
+		}`;
+
+		function main(){
+			var canvas = document.getElementById("canvas");
+			var gl = canvas.getContext("webgl2");
+			if(!gl){
+				return;
+			}
+
+			var n = initVertexBuffers(gl);
+			if(n<0){
+				return;
+			}
+
+			gl.clearColor(0,0,0,1);
+
+			gl.clear(gl.COLOR_BUFFER_BIT);
+
+			gl.drawArrays(gl.TRIANGLES,0,n);
+		}
+
+		function initVertexBuffers(gl){
+			var program = webglUtils.createProgramFromSources(gl,[vs,fs]);
+			var position = gl.getAttribLocation(program,'a_position');
+			if(position<0){
+				console.log('Failed to get the storage location of a_position');
+				return -1;
+			}
+			var vertices = new Float32Array([0,0.5,-0.5,-0.5,0.5,-0.5]);
+			var n =3;
+			// create a buffer
+			var vertexBuffer = gl.createBuffer();
+			if(!vertexBuffer){//创建buffer失败
+				return -1;
+			}
+			// gl.ARRAY_BUFFER:表示存的是顶点坐标;
+			// 若是gl.ELEMENT_ARRAY_BUFFER:表示存的是顶点索引值
+			gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer);
+
+			/*写入数据*/
+			// gl.ARRAY_BUFFER:写入顶点坐标
+			// vertices:顶点坐标
+			// gl.STATIC_DRAW:写入方式
+			gl.bufferData(gl.ARRAY_BUFFER,vertices,gl.STATIC_DRAW);
+
+			// 将缓冲区对象分配给position变量
+			// 2：每个顶点的分量个数
+			// gl.FLOAT:值的类型。这个表示是数组中存的是32位的float类型
+			// false:表示不把非浮点型的数据归一化到[0,1]或[-1,1]
+			// 0:指定相邻两个顶点间的字节数
+			// 0：指定缓冲区对象的偏移量
+			gl.vertexAttribPointer(position,2,gl.FLOAT,false,0,0);
+
+			gl.enableVertexAttribArray(position);
+			gl.useProgram(program);
+
+			return n;
+		}
+		main();
+	</script>
+</body>
+</html>

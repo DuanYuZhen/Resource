@@ -1,0 +1,18 @@
+<!-- 创建framebuffer -->
+//framebuffer
+// let framebuffer = gl.createFramebuffer();
+// gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
+// gl.invalidateFramebuffer(gl.FRAMEBUFFER, [gl.COLOR_ATTACHMENT0]);
+// gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, targetTexture, 0); 
+        
+<!-- depthbuffer 深度渲染缓冲 -->
+// let depthRenderbuffer = gl.createRenderbuffer();
+// gl.bindRenderbuffer(gl.RENDERBUFFER, depthRenderbuffer);
+// gl.renderbufferStorage(gl.RENDERBUFFER, gl.DEPTH_COMPONENT16, textureWidth, textureHeight);
+// gl.framebufferRenderbuffer(gl.FRAMEBUFFER, gl.DEPTH_ATTACHMENT, gl.RENDERBUFFER, depthRenderbuffer);
+
+<!-- 检测framebuffer -->
+// let status = gl.checkFramebufferStatus(gl.FRAMEBUFFER);
+// if(status != gl.FRAMEBUFFER_COMPLETE){
+//     alert("wrong");
+// }

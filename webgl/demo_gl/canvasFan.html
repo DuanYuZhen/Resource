@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>扇形</title>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin:0;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="can" width="500" height="500" style="background-color: yellow"></canvas>
+</body>
+</html>
+<script type="text/javascript">
+	// ctx: Canvas绘图环境
+// x,y: 位移目标点
+// r: 圆弧半径
+// sDeg: 旋转起始角度
+// eDeg: 旋转终点角度
+
+function drawSector(ctx, x, y,r, sDeg, eDeg) {
+    // 初始保存
+    ctx.save();
+
+    //位移到目标点
+    ctx.translate(x, y);
+    ctx.beginPath();
+
+    // 画出圆弧
+    ctx.arc(0, 0, r, sDeg, eDeg);
+
+    // 再次保存以备旋转
+    ctx.save();
+
+    // 旋转至起始角度
+    ctx.rotate(eDeg);
+
+    // 移动到终点，准备连接终点与圆心
+    ctx.moveTo(r, 0);
+
+    // 连接到圆心
+    ctx.lineTo(0, 0);
+
+    // 还原
+    ctx.restore();
+
+    // 旋转至起点角度
+    ctx.rotate(sDeg);
+
+    // 从圆心连接到起点
+    ctx.lineTo(r, 0);
+
+    ctx.closePath();
+    // 还原到最初保存的状态
+    ctx.restore();
+}
+
+function drawScreen () {
+
+    var deg = Math.PI / 180;
+
+    var obj = {
+        x: 300,
+        y: 150,
+        r: 80,
+        sDeg: [30, 111, 190, 233, 280, 345],
+        eDeg: [111, 190, 233, 280, 345, 30],
+        style: ['#f00', '#0f0', '#00f', '#789', '#abcdef']
+    }
+    let ctx = document.getElementById("can").getContext("2d");
+
+    for (var i = 0; i < obj.sDeg.length; i++) {
+        drawSector(ctx,obj.x, obj.y, obj.r, obj.sDeg[i] * deg, obj.eDeg[i] * deg);
+        ctx.fill();
+        ctx.fillStyle = obj.style[i];
+    }
+
+}
+drawScreen();
+</script>

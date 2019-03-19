@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>drawCircle-canvas2d</title>
+</head>
+<style>
+	.container{
+		position:relative;
+	}
+	#text{
+		position:absolute;
+		left:0px;
+		top:0px;
+		z-index:10;
+	}
+</style>
+<body onload="main()">
+<div class="container">
+    <canvas id="canvas" height="500" width="500"></canvas>
+	<canvas id="text" height="500" width="500"></canvas>
+</div>
+    <script type="text/javascript" src="js/webgl-lessons-helper.js" ></script>
+	<script type="text/javascript" src="js/webgl-utils.js" ></script>
+	<script type="text/javascript">
+	    function main(){
+			var canvas = document.getElementById("text");
+			if(canvas){
+				var ctx = canvas.getContext("2d");
+				
+				ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
+				ctx.fillStyle="black";
+				
+				ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
+				//绘制圆
+				drawCircle(ctx,100,100,20,2);
+				drawCircle(ctx,200,100,10,1);
+				drawCircle(ctx,300,100,30,3);
+
+				var starConf = {
+					size:100,
+					rotation:0,
+					outerRadius:50,
+					innerRadius:20,
+					vertexNum:6,
+					fillColor:"red",
+					outlineColor:"blue",
+					outlineWidth:3
+				};
+				drawStar(ctx,starConf,200,350);
+
+				//绘制多边形
+				ctx.moveTo(100,200);
+				drawPolygon(ctx, { num: 6,  r: 60, x: 100, y: 250, strokeStyle: 'blue',    fillStyle: '#9da'});		
+				drawPolygon(ctx, { num: 10, r: 50, x: 250, y: 250, fillStyle: '#FFFF00'});
+				drawPolygon(ctx, { num: 4,  r: 50, x: 400, y: 250, strokeStyle: 'red',    width: 4});
+				
+			}
+	    }
+	    function drawCircle(ctx,x,y,radius,lineWidth){
+			ctx.beginPath();
+			ctx.arc(x,y,radius,0,Math.PI*2,true);
+			ctx.closePath();
+			ctx.fillStyle="red";
+			ctx.fill();
+			//绘制边框线
+			ctx.strokeStyle="yellow";
+			ctx.lineWidth = lineWidth;
+			ctx.stroke();
+	    }
+		/** conf: 正多边形，可以包含的属性：
+			x： 中心点横坐标
+			y： 中心点纵坐标
+			num: 正多边形的边数
+			r：正多边形的半径长度
+			width：多边形线的宽度
+			strokeStyle：边线的颜色
+			fillStyle：填充的颜色
+		**/
+
+		function drawPolygon(ctx, conf){
+			var x = conf && conf.x || 0;  //中心点x坐标
+			var y = conf && conf.y || 0;  //中心点y坐标
+			var num = conf && conf.num || 3;   //图形边的个数
+			var r = conf && conf.r || 10;   //图形的半径
+			var width = conf && conf.width || 5;
+			var strokeStyle = conf && conf.strokeStyle;
+			var fillStyle = conf && conf.fillStyle;
+			//开始路径
+			ctx.beginPath();
+			var startX = x + r * Math.cos(2*Math.PI*0/num);
+			var startY = y + r * Math.sin(2*Math.PI*0/num);
+			ctx.moveTo(startX, startY);
+			for(var i = 1; i <= num; i++) {
+				var newX = x + r * Math.cos(2*Math.PI*i/num);
+				var newY = y + r * Math.sin(2*Math.PI*i/num);
+				ctx.lineTo(newX, newY);
+			}
+			//路径闭合
+			ctx.closePath();
+			
+			if(strokeStyle) {
+				ctx.strokeStyle = strokeStyle;
+				ctx.lineWidth = width;
+				ctx.lineJoin = 'round';
+				ctx.stroke();
+			}
+			if(fillStyle) {
+				ctx.fillStyle = fillStyle;
+				ctx.fill();
+			}
+		}
+		//绘制星形符号
+		function drawStar(ctx,conf,x,y){
+			var angleI, radiusC;
+			// reset transform
+			ctx.beginPath();
+			// ctx.setTransform(1, 0, 0, 1, 0, 0);
+			// then move to (x, y)
+			ctx.translate(x, y);
+						 
+			var points = 2 * conf.vertexNum;  
+			var innerRadius = conf.innerRadius;//内半径		 
+			for (var i = 0; i <= points; i++) {
+			  angleI = i * 2 * Math.PI / points - Math.PI / 2 + conf.rotation;
+			  radiusC = i % 2 == 0 ? conf.outerRadius : innerRadius;
+			  var xi = conf.size / 2 + radiusC * Math.cos(angleI);
+			  var yi = conf.size / 2 + radiusC * Math.sin(angleI);
+			  ctx.lineTo(xi,yi);
+			}  
+			  if (conf.fillColor) {			 
+				ctx.fillStyle = conf.fillColor;
+				ctx.fill();
+			  }
+			  if (conf.outlineWidth) {
+				ctx.strokeStyle = conf.outlineColor;
+				ctx.lineWidth = conf.outlineWidth;
+				if (conf.lineDash) {
+				  ctx.setLineDash(conf.lineDash);
+				  ctx.lineDashOffset = conf.lineDashOffset;
+				}
+				//context.lineCap = renderOptions.lineCap;
+				//context.lineJoin = renderOptions.lineJoin;
+				//context.miterLimit = renderOptions.miterLimit;
+				ctx.stroke();
+			  }
+
+			  ctx.closePath();
+			  // ctx.setTransform(-1, 0, 0, -1, 0, 0);
+		}
+		//绘制箭头符号
+		function drawArrow(){
+			
+		}
+	</script>	   
+</body>
+
+</html>

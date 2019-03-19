@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<!-- webgl-utils.js， 它包含了编译和链接着色器的方法 -->
+	<script src="https://webgl2fundamentals.org/webgl/resources/webgl-utils.js"></script>
+</head>
+<body onload="main()">
+	 <canvas id="c" style="width:400px;height:300px;"></canvas>
+</body>
+</html>
+<script type="text/javascript">
+	"use strict";
+	
+	var vertexShaderSource = `#version 300 es
+	in vec2 a_position;
+	uniform vec2 u_resolution;//全局变量
+	void main() {
+	  // vec2 zeroToOne = a_position/u_resolution;
+	  // vec2 zeroToTwo = zeroToOne*2.0;
+	  // vec2 clipSpace = zeroToTwo-1.0;
+	  vec2 clipSpace = a_position/u_resolution*2.0-1.0;
+	  gl_Position = vec4(clipSpace*vec2(1,-1),0.0,1.0);
+	}
+	`;
+	 
+	var fragmentShaderSource = `#version 300 es
+	precision mediump float;
+	out vec4 outColor;
+	void main() {
+	  outColor = vec4(1, 0, 0.5, 1);
+	}
+	`;
+
+	function createShader(gl, type, source) {
+	  var shader = gl.createShader(type);
+	  gl.shaderSource(shader, source);
+	  gl.compileShader(shader);
+	  var success = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
+	  if (success) {
+	    return shader;
+	  }
+	 
+	  console.log(gl.getShaderInfoLog(shader));
+	  gl.deleteShader(shader);
+	  return undefined;
+	}
+
+	function createProgram(gl, vertexShader, fragmentShader) {
+	  var program = gl.createProgram();
+	  gl.attachShader(program, vertexShader);
+	  gl.attachShader(program, fragmentShader);
+	  gl.linkProgram(program);
+	  var success = gl.getProgramParameter(program, gl.LINK_STATUS);
+	  if (success) {
+	    return program;
+	  }
+	 
+	  console.log(gl.getProgramInfoLog(program));
+	  gl.deleteProgram(program);
+	  return undefined;
+	}
+
+	function resize(canvas) {
+	  // 获取浏览器中画布的显示尺寸
+	  var displayWidth  = canvas.clientWidth;
+	  var displayHeight = canvas.clientHeight;
+	 
+	  // 检尺寸是否相同
+	  if (canvas.width  != displayWidth ||
+	      canvas.height != displayHeight) {
+	 
+	    // 设置为相同的尺寸
+	    canvas.width  = displayWidth;
+	    canvas.height = displayHeight;
+	  }
+	}
+
+	function main(){
+		var canvas = document.getElementById("c");
+		var gl = canvas.getContext("webgl2");
+		if (!gl) {
+			return;
+		}
+		var vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+		var fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+		var program = createProgram(gl, vertexShader, fragmentShader);
+
+		
+		var positionBuffer = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+		var positions = [
+		      10, 20,
+			  80, 20,
+			  10, 30,
+			  10, 30,
+			  80, 20,
+			  80, 30
+		];
+		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+
+		var vao = gl.createVertexArray();
+		gl.bindVertexArray(vao);
+		var positionAttributeLocation = gl.getAttribLocation(program, "a_position");
+		var resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
+		gl.enableVertexAttribArray(positionAttributeLocation);
+
+		var size = 2;          // 2 components per iteration
+		var type = gl.FLOAT;   // the data is 32bit floats
+		var normalize = false; // don't normalize the data
+		var stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position
+		var offset = 0;        // start at the beginning of the buffer
+		gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
+
+		resize(gl.canvas);
+		gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+
+		gl.clearColor(0, 0, 0, 0);
+  		gl.clear(gl.COLOR_BUFFER_BIT);
+
+  		gl.useProgram(program);
+  		// 设置全局变量 分辨率
+		gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height);
+
+  		var primitiveType = gl.TRIANGLES;
+  		var offset = 0;
+  		var count = 6;
+  		gl.drawArrays(primitiveType, offset, count);
+	}
+
+
+
+</script>

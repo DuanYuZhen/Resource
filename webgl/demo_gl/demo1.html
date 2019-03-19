@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>画点——顶点着色器和片元着色器</title>
+</head>
+<body>
+	<canvas id="canvas" height="500" width="620"></canvas>
+	<script type="text/javascript" src="js/webgl-lessons-helper.js"></script>
+	<script type="text/javascript" src="js/webgl-utils.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+	//顶点着色器：位置、大小
+	// GLSL ES语言
+	var vs = `#version 300 es
+	in vec4 a_positions;
+	void main(){
+		gl_Position=a_positions;
+		gl_PointSize=10.0;
+	}`;
+
+	// 片元着色器
+	// GLSL ES语言
+	var fs = `#version 300 es
+	precision mediump float;
+	uniform vec4 u_color;
+	out vec4 outColor;
+	void main(){
+		outColor=u_color;
+	}`;
+
+	function main(){
+		// get a webgl context
+		var canvas = document.getElementById("canvas");
+		var gl = canvas.getContext("webgl2");
+		if(!gl){
+			return;
+		}
+
+		// ？？？
+		var program = webglUtils.createProgramFromSources(gl,[vs,fs]);
+		// a_position是给位置的命名，即变量名
+		var positionAttributeLocation = gl.getAttribLocation(program,"a_positions");
+		// u_color是给颜色值的命名，即变量名
+		var colorLocation = gl.getUniformLocation(program,"u_color");
+
+		gl.useProgram(program);
+
+		canvas.onmousedown=function(ev){
+			click(ev,gl,canvas,
+				positionAttributeLocation,
+				colorLocation);
+		};
+
+		// 设置清空颜色
+		gl.clearColor(0,0,0,1);
+		// 用设置的颜色清空画布
+		gl.clear(gl.COLOR_BUFFER_BIT);
+
+		// 得到视口
+		vp=gl.getParameter(gl.VIEWPORT);
+		console.log("viewport:"+vp);
+	}
+	
+
+	var g_points = [];
+	var g_colors = [];
+	function click(ev,gl,canvas,
+		positionAttributeLocation,
+		colorLocation){
+
+		var x=ev.clientX;
+		var y=ev.clientY;
+		var rect=ev.target.getBoundingClientRect();
+		console.log("rect:" + rect.left);
+		console.log("x0:" + x);
+
+		x=((x-rect.left)-canvas.width/2)/(canvas.width/2);
+		y=(canvas.height/2-(y-rect.top))/(canvas.height/2);
+		console.log(x + "/" +y);
+		g_points.push([x,y]);
+		g_colors.push([Math.random(),Math.random(),Math.random(),1]);
+
+
+		// gl.COLOR_BUFFER_BIT ??????
+		gl.clear(gl.COLOR_BUFFER_BIT);
+
+		var len=g_points.length;
+		for(var i=0;i<len;i++){
+			var xy=g_points[i];
+			var rgba=g_colors[i];
+
+			// positionAttributeLocation这个参数是用来区分后面的参数是什么意义
+			// 0.0？？？？
+			gl.vertexAttrib3f(positionAttributeLocation,xy[0],xy[1],0.0);
+			gl.uniform4f(colorLocation,rgba[0],rgba[1],rgba[2],rgba[3]);
+			// gl.POINTS???
+			gl.drawArrays(gl.POINTS,0,1);
+		}
+	}
+	main();
+</script>

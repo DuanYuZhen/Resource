@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>画矩形</title>
+	<script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+</head>
+<body onload="main()">
+	<canvas id="webgl" width="400" height="400"></canvas>
+</body>
+</html>
+<script type="text/javascript">
+	let vs = 
+	"attribute vec4 a_position;"+
+	"void main(){"+
+		"gl_Position = a_position;"+
+	"}";
+	let fs = 
+	"void main(){"+
+		"gl_FragColor = vec4(1.0,0.0,0.0,1.0);"+
+	"}";
+	function main(){
+		let canvas = document.getElementById("webgl");
+		let gl = getWebGLContext(canvas);
+		if(!gl){
+			return;
+		}
+
+		if(!initShaders(gl,vs,fs)){
+			return;
+		}
+
+		let n = initVetexBuffer(gl);
+		if(n<0){
+			return;
+		}
+
+		gl.clearColor(0.5,0.5,0.5,1.0);
+		gl.clear(gl.COLOR_BUFFER_BIT);
+		// gl.drawArrays(gl.TRIANGLE_STRIP,0,n);//三角形带
+		gl.drawArrays(gl.TRIANGLE_FAN,0,n);//三角形扇状
+	}
+	function initVetexBuffer(gl){
+		let n = 4;
+		// let vertex = new Float32Array([-0.5,0.5, -0.5,-0.5, 0.5,0.5, 0.5,-0.5]);//三角形带
+		// let vertex = new Float32Array([-0.5,0.5, -0.5,-0.5, 0.5,-0.5, 0.5,0.5]);//三角形扇 顺时针传点
+		let vertex = new Float32Array([-0.5,0.5, 0.5,0.5,  0.5,-0.5,  -0.5,-0.5]);//三角形扇  逆时针传点
+
+		let vertexBuffer = gl.createBuffer();
+		if(!vertexBuffer){
+			return;
+		}
+
+		gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer);
+
+		gl.bufferData(gl.ARRAY_BUFFER,vertex,gl.STATIC_DRAW);
+
+		let a_position = gl.getAttribLocation(gl.program,"a_position");
+		if(a_position<0){
+			return;
+		}
+
+		gl.vertexAttribPointer(a_position,2,gl.FLOAT,false,0,0);
+
+		gl.enableVertexAttribArray(a_position);
+
+		return n;
+	}
+</script>

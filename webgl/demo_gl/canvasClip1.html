@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>canvas裁切功能</title>
+	<style type="text/css">
+		*{
+			padding:0;margin:0;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="can" width="500" height="500" style="background-color: yellow"></canvas>
+</body>
+</html>
+<script type="text/javascript">
+	function drawScreen(){
+		let can = document.getElementById("can");
+		let context = can.getContext("2d");
+		context.fillStyle = "black";
+		context.fillRect(10,10,200,200);
+		context.save();
+		// context.beginPath();
+
+
+		context.rect(0,0,100,100);
+		context.clip();
+
+		// 红色圆
+		context.beginPath();
+		context.strokeStyle = "red";
+		context.lineWidth = 5;
+		context.arc(100,100,100,(Math.PI/180)*0,(Math.PI/180)*360,false);
+		context.stroke();
+		context.closePath();
+		context.restore();
+
+		context.beginPath();
+		context.rect(0,0,500,500);
+		context.clip();
+
+		// 蓝色圆
+		context.beginPath();
+		context.strokeStyle = "blue";
+		context.lineWidth = 5;
+		context.arc(100,100,50,0,(Math.PI/180)*360,false);
+		context.stroke();
+		context.closePath();
+
+	}
+	drawScreen();
+</script>

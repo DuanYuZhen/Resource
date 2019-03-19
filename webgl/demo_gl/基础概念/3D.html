@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>三维正射投影</title>
+</head>
+<body>
+	<canvas id="dom" style="width:400px;height:400px;"></canvas>
+</body>
+</html>
+<script type="text/javascript">
+	//定义着色器
+	let vertexShaderSource = `#version 300 es
+	in vec4 a_position;
+	in vec4 a_color;
+	out vec4 v_color;
+	uniform mat4 u_matrix;
+	void main(){
+		//没有w值，webgl会自动补齐;有的话，会都除以w。
+		gl_Position = u_matrix * a_position;
+		v_color = a_color;
+	}`;
+	let fragmentShaderSource = `#version 300 es
+	precision mediump float;
+	in vec4 v_color;
+	out vec4 outColor;
+	void main(){
+		outColor = v_color;
+	}`;
+	//获取上下文
+	let canvas = document.getElementById("dom");
+	let gl = canvas.getContext("webgl2");
+	if(!gl){
+		console.log("no webgl2 for you");
+	}
+	// 创建着色器
+	function createShader(gl,type,source){
+		let shader = gl.createShader(type);
+		gl.shaderSource(shader,source);
+		gl.compileShader(shader);
+		let success = gl.getShaderParameter(shader,gl.COMPILE_STATUS);
+		if(success){
+			return shader;
+		}else{
+			console.log(gl.getShaderInfoLog(shader));
+			gl.deleteShader(shader);
+		}
+	}
+	let vertexShader = createShader(gl,gl.VERTEX_SHADER,vertexShaderSource);
+	let fragmentShader = createShader(gl,gl.FRAGMENT_SHADER,fragmentShaderSource);
+
+	//创建着色器程序 
+	function createProgram(gl,vertexShader,fragmentShader){
+		let program = gl.createProgram();
+		gl.attachShader(program,vertexShader);
+		gl.attachShader(program,fragmentShader);
+		gl.linkProgram(program);
+		let success = gl.getProgramParameter(program,gl.LINK_STATUS);
+		if(success){
+			return program;
+		}else{
+			console.log(gl.getProgramInfoLog(program));
+			gl.deleteProgram(program);
+		}
+	}
+	let program = createProgram(gl,vertexShader,fragmentShader);
+
+	//提供数据
+	let positionLocation = gl.getAttribLocation(program,"a_position");
+	let colorLocation = gl.getAttribLocation(program,"a_color");
+	// let colorLocation = gl.getUniformLocation(program,"u_color");
+	let matrixLocation = gl.getUniformLocation(program,"u_matrix");
+
+	let positionbuffer = gl.createBuffer();
+	gl.bindBuffer(gl.ARRAY_BUFFER,positionbuffer);
+
+	// 因为Y轴会翻转，所以top和bottom互换。
+	// z轴正方向朝屏幕内部——深度测试
+	let positions = [
+	    // bottom
+		0,100,100,
+		100,100,100,
+		0,100,0,
+
+		100,100,100,
+		100,100,0,
+		0,100,0,
+
+		// top
+		0,0,100,
+		0,0,0,
+		100,0,100,
+
+		100,0,100,
+		0,0,0,
+		100,0,0,
+
+		// left
+		0,100,0,
+		0,0,100,
+		0,100,100,
+
+		0,0,100,
+		0,100,0,
+		0,0,0,
+
+		// right
+		100,100,0,
+		100,100,100,
+		100,0,0,
+
+		100,0,0,
+		100,100,100,
+		100,0,100,
+
+		// front(红)
+		0,100,0,
+		100,100,0,
+		0,0,0,
+
+		0,0,0,
+		100,100,0,
+		100,0,0,
+
+		// back（蓝色）
+		0,0,100,
+		100,0,100,
+		0,100,100,
+
+		100,0,100,
+		100,100,100,
+		0,100,100,
+	];
+	gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(positions),gl.STATIC_DRAW);
+
+	let vao = gl.createVertexArray();
+	gl.bindVertexArray(vao);
+
+	gl.enableVertexAttribArray(positionLocation);
+	gl.vertexAttribPointer(positionLocation,3,gl.FLOAT,false,0,0);
+
+	// 创建颜色缓冲区
+	let colorBuffer = gl.createBuffer();
+	gl.bindBuffer(gl.ARRAY_BUFFER,colorBuffer);
+	let colors = [
+		// bottom（黑色）
+		0, 0, 0,
+		0, 0, 0,
+		0, 0, 0,
+
+		0, 0, 0,
+		0, 0, 0,
+		0, 0, 0,
+		// top（蓝色）
+		0, 0, 255,
+		0, 0, 255,
+		0, 0, 255,
+
+		0, 0, 255,
+		0, 0, 255,
+		0, 0, 255,
+		// left（粉色）
+		255, 0, 255,
+		255, 0, 255,
+		255, 0, 255,
+
+		255, 0, 255,
+		255, 0, 255,
+		255, 0, 255,
+		// right（绿色）
+		0, 255, 0,
+		0, 255, 0,
+		0, 255, 0,
+
+		0, 255, 0,
+		0, 255, 0,
+		0, 255, 0,
+		// front（黄）
+		255, 255, 0,
+		255, 255, 0,
+		255, 255, 0,
+
+		0, 255, 255,
+		0, 255, 255,
+		255, 255, 0,
+		// back（红）
+		255, 0, 0,
+		255, 0, 0,
+		255, 0, 0,
+
+		255, 0, 0,
+		255, 0, 0,
+		255, 0, 0,
+	];
+	gl.bufferData(gl.ARRAY_BUFFER,new Uint8Array(colors),gl.STATIC_DRAW);
+	gl.enableVertexAttribArray(colorLocation);
+	gl.vertexAttribPointer(colorLocation,3,gl.UNSIGNED_BYTE,true,0,0);
+
+	//设置画布
+	function resize(canvas){
+		let displayw = canvas.clientWidth;
+		let displayh = canvas.clientHeight;
+		if(canvas.width!==displayw||canvas.height!==displayh){
+			canvas.width = displayw;
+			canvas.height = displayh;
+		}
+	}
+	resize(gl.canvas);
+	gl.viewport(0,0,gl.canvas.width,gl.canvas.height);
+	gl.clearColor(0,0,0,0);
+
+	// 清除颜色缓冲的同时，清除深度缓冲
+	gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+	gl.enable(gl.DEPTH_TEST);// 打开深度测试
+
+	// gl.enable(gl.CULL_FACE);// 剔除背面三角形（即不绘制逆时针的三角形）
+	gl.enable(gl.BLEND);
+	gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
+	//渲染
+	gl.useProgram(program);
+	gl.bindVertexArray(vao);
+	//矩阵
+	let m4 = {
+		//返回单位矩阵
+		identity:function(){
+			return [
+				1,0,0,0,
+				0,1,0,0,
+				0,0,1,0,
+				0,0,0,1,
+			];
+		},
+		//屏幕坐标对应到裁剪坐标
+		projection:function(width,height,depth){
+			return [
+				2/width,0,        0,      0,
+				0,      -2/height,0,      0,
+				0,	    0,	      2/depth,0,
+				-1,     1,        0,      1,
+			];
+		},
+		translation:function(a,b,c){
+			return [
+				1,0,0,0,
+				0,1,0,0,
+				0,0,1,0,
+				a,b,c,1,
+			];
+		},
+		// 旋转
+		xRotation:function(angle){
+			let c = Math.cos(angle);
+			let s = Math.sin(angle);
+			return [
+				1,0, 0,0,
+				0,c, -s,0,
+				0,s, c,0,
+				0,0, 0,1,
+			];
+		},
+		yRotation:function(angle){
+			let c = Math.cos(angle);
+			let s = Math.sin(angle);
+			return [
+				c,0,-s,0,
+				0,1,0, 0,
+				s,0,c, 0,
+				0,0,0, 1,
+			];
+		},
+		zRotation:function(angle){
+			let c = Math.cos(angle);
+			let s = Math.sin(angle);
+			return [
+				c, -s, 0,0, 
+				s, c, 0,0,
+				0, 0, 1,0,
+				0, 0, 0,1,
+			];
+		},
+		scale:function(sX,sY,sZ){
+			return [
+				sX,0, 0, 0,
+				0, sY,0, 0,
+				0, 0, sZ,0,
+				0, 0, 0, 1,
+			];
+		},
+		multiply: function(a, b) {
+		    var a00 = a[0 * 4 + 0];
+		    var a01 = a[0 * 4 + 1];
+		    var a02 = a[0 * 4 + 2];
+		    var a03 = a[0 * 4 + 3];
+		    var a10 = a[1 * 4 + 0];
+		    var a11 = a[1 * 4 + 1];
+		    var a12 = a[1 * 4 + 2];
+		    var a13 = a[1 * 4 + 3];
+		    var a20 = a[2 * 4 + 0];
+		    var a21 = a[2 * 4 + 1];
+		    var a22 = a[2 * 4 + 2];
+		    var a23 = a[2 * 4 + 3];
+		    var a30 = a[3 * 4 + 0];
+		    var a31 = a[3 * 4 + 1];
+		    var a32 = a[3 * 4 + 2];
+		    var a33 = a[3 * 4 + 3];
+		    var b00 = b[0 * 4 + 0];
+		    var b01 = b[0 * 4 + 1];
+		    var b02 = b[0 * 4 + 2];
+		    var b03 = b[0 * 4 + 3];
+		    var b10 = b[1 * 4 + 0];
+		    var b11 = b[1 * 4 + 1];
+		    var b12 = b[1 * 4 + 2];
+		    var b13 = b[1 * 4 + 3];
+		    var b20 = b[2 * 4 + 0];
+		    var b21 = b[2 * 4 + 1];
+		    var b22 = b[2 * 4 + 2];
+		    var b23 = b[2 * 4 + 3];
+		    var b30 = b[3 * 4 + 0];
+		    var b31 = b[3 * 4 + 1];
+		    var b32 = b[3 * 4 + 2];
+		    var b33 = b[3 * 4 + 3];
+		    return [
+		      b00 * a00 + b01 * a10 + b02 * a20 + b03 * a30,
+		      b00 * a01 + b01 * a11 + b02 * a21 + b03 * a31,
+		      b00 * a02 + b01 * a12 + b02 * a22 + b03 * a32,
+		      b00 * a03 + b01 * a13 + b02 * a23 + b03 * a33,
+		      b10 * a00 + b11 * a10 + b12 * a20 + b13 * a30,
+		      b10 * a01 + b11 * a11 + b12 * a21 + b13 * a31,
+		      b10 * a02 + b11 * a12 + b12 * a22 + b13 * a32,
+		      b10 * a03 + b11 * a13 + b12 * a23 + b13 * a33,
+		      b20 * a00 + b21 * a10 + b22 * a20 + b23 * a30,
+		      b20 * a01 + b21 * a11 + b22 * a21 + b23 * a31,
+		      b20 * a02 + b21 * a12 + b22 * a22 + b23 * a32,
+		      b20 * a03 + b21 * a13 + b22 * a23 + b23 * a33,
+		      b30 * a00 + b31 * a10 + b32 * a20 + b33 * a30,
+		      b30 * a01 + b31 * a11 + b32 * a21 + b33 * a31,
+		      b30 * a02 + b31 * a12 + b32 * a22 + b33 * a32,
+		      b30 * a03 + b31 * a13 + b32 * a23 + b33 * a33,
+		    ];
+		  }
+	};
+	let translationMatrix = m4.translation(0,0,0);
+	let yRotationMatrix = m4.yRotation(10*Math.PI/180);
+	let xRotationMatrix = m4.xRotation(10*Math.PI/180);
+	let zRotationMatrix = m4.zRotation(0*Math.PI/180);
+	let scaleMatrix = m4.scale(1,1,1);
+	//矩阵乘的顺序：投影矩阵*旋转矩阵*平移矩阵*缩放矩阵*顶点坐标
+	let matrix = m4.projection(gl.canvas.width,gl.canvas.height,400);//转换空间的矩阵
+	matrix = m4.multiply(matrix,yRotationMatrix);
+	matrix = m4.multiply(matrix,xRotationMatrix);
+	matrix = m4.multiply(matrix,zRotationMatrix);
+	matrix = m4.multiply(matrix,translationMatrix);
+	matrix = m4.multiply(matrix,scaleMatrix);
+    gl.uniformMatrix4fv(matrixLocation,false,matrix);
+    gl.drawArrays(gl.TRIANGLES,0,36);
+
+</script>

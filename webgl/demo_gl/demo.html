@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+	var A = Base => class extends Base {   
+	    constructor(...args){  
+	        super(...args);  
+	        console.log("A",args);  
+	    }   
+	    calc() {    
+	        console.log("calc");    
+	    }    
+	};    
+
+	var B = Base => class extends Base {    
+	    constructor(...args){  
+	        super(...args);  
+	        console.log("B",args);  
+	    }  
+	    randomize() {  
+	        super.foo();    
+	        console.log("randomize");    
+	    }    
+	};    
+	  
+	    
+	class Foo {    
+	    constructor(...args){  
+	        console.log("Foo",args);  
+	    }   
+	    foo(){    
+	        console.log("foo");    
+	    }    
+	}    
+	class Bar extends A(B(Foo)) {  
+	  
+	}    
+	    
+	var b = new Bar(1,2,3);    
+	b.foo();    
+	b.randomize();    
+	b.calc();   
+	  
+	// A.prototype = Object.create({});//需要继承自Object，这里如果写null的话，instanceof Object会是false  
+	// B.prototype = Object.create(null);  
+	// Object.setPrototypeOf(B.prototype,A.prototype)  
+	// Object.setPrototypeOf(Foo.prototype,B.prototype)  
+	  
+	  
+	// console.log(b instanceof Bar)//true  
+	// console.log(b instanceof Foo)//true  
+	// console.log(b instanceof A)//true  
+	// console.log(b instanceof B)//true  
+	// console.log(b instanceof Object)//true  
+</script>
