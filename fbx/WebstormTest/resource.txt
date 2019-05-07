@@ -1,0 +1,4 @@
+three.js: https://github.com/mrdoob/three.js
+demo: https://threejs.org/examples/#webgl_loader_fbx_nurbs
+
+ π”√Œƒµµ£∫http://www.hewebgl.com/article/getarticle/27
